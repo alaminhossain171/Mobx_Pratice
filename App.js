@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Count from './components/Count';
+import GetUserData from './components/GetUserData';
+import { useStore } from './hooks/useStore';
 
 export default function App() {
+  const {rootStore}=useStore();
+  console.log(rootStore.UserInfo)
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Count />
+      <GetUserData />
     </View>
   );
 }
