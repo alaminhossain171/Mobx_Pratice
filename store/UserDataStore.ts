@@ -1,12 +1,7 @@
 import axios from "axios";
 import { action, computed, makeObservable, observable } from "mobx";
 import { IRootStore } from "./RootStroe";
-// https://jsonplaceholder.typicode.com/posts/1
 
-// userId	1
-// id	1
-// title	"sunt aut facere repellat…uri optio reprehenderit"
-// body	"quia et suscipit\nsuscip… rem eveniet architecto"
 interface IUserData {
     userId: any;
     id: any;

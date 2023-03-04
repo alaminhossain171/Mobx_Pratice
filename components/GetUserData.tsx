@@ -7,13 +7,13 @@ const GetUserData = observer(() => {
     const { rootStore } = useStore();
     const [userData, setUserData] = React.useState(rootStore.UserDetails.getUserData);
     React.useEffect(() => {
-       rootStore.UserDetails.fetchData()
+        rootStore.UserDetails.fetchData()
     }, [])
     React.useEffect(() => {
         setUserData(rootStore.UserDetails.getUserData);
-      }, [rootStore.UserDetails.getUserData]);
+    }, [rootStore.UserDetails.getUserData]);
     return <View>
-           <Text>{userData?.id}</Text>
+        <Text>{userData?.id}</Text>
         <Text>{userData?.title}</Text>
         <Text>{userData?.body}</Text>
         <Text>{rootStore.CountStore.count}</Text>

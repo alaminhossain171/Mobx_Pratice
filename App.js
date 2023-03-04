@@ -1,19 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { observer } from 'mobx-react-lite';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import Count from './components/Count';
 import GetUserData from './components/GetUserData';
+import Login from './components/Login';
 import { useStore } from './hooks/useStore';
+const App = observer(() => {
+  const { rootStore } = useStore();
 
-export default function App() {
-  const {rootStore}=useStore();
-  console.log(rootStore.UserInfo)
   return (
     <View style={styles.container}>
-      <Count />
-      <GetUserData />
+      <Login />
+      {rootStore.AuthToken.getUserToken &&
+        <>
+          <Count />
+          <GetUserData />
+          
+          <Button title='Logout' onPress={()=>rootStore.AuthToken.logout()} />
+          </>}
     </View>
   );
-}
+})
+export default App
 
 const styles = StyleSheet.create({
   container: {
